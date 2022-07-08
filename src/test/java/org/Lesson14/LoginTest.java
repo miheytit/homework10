@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
@@ -28,13 +29,20 @@ public class LoginTest {
         loginPage.openLoginWindow();
         loginPage.inputLogin(ConfProperties.getProperty("login"));
         loginPage.inputPasswd(ConfProperties.getProperty("password"));
-        loginPage.clickLoginBtn();
+        loginPage.submitLoginForm();
         loginPage.waitAfterSubmit();
         assertFalse(loginPage.loginWindowLinkExists(), "logged in successfully");
     }
 
+
     @AfterAll
     public static void tearDown() {
+//        LogEntries browserLogs = driver.manage().logs().get(LogType.BROWSER);
+//        List<LogEntry> allLogRows = browserLogs.getAll();
+//        if (allLogRows.size() > 0)
+//        {
+//
+//        }
         driver.quit();
     }
 }

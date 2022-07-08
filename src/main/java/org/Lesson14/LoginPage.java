@@ -9,6 +9,9 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
+
 public class LoginPage {
 
     public WebDriver driver;
@@ -25,7 +28,7 @@ public class LoginPage {
     @FindBy(xpath = "//button//span[contains(text(), 'Войти')]")
     private WebElement loginButtonLink;
     @FindBy(xpath = "//button[contains(@data-gtm, \"Login — Mail — Click\")]")
-    private WebElement loginFieldLink;
+    private WebElement loginFormButton;
     @FindBy(xpath = "//*[contains(@name, 'login')]")
     private WebElement loginField;
 
@@ -33,7 +36,7 @@ public class LoginPage {
     private WebElement passwdField;
 
     @FindBy(xpath = "//button[contains(@data-gtm, \"Login Mail — Login — Click\")]")
-    private WebElement loginBtn;
+    private WebElement loginFormSubmitButton;
     @FindBy(xpath = "//a[contains(@class, \"navigation-user-profile__avatar\")]")
     private WebElement avatar;
 
@@ -48,21 +51,21 @@ public class LoginPage {
     public void openLoginWindow() {
         loginWindowLink.click();
         loginButtonLink.click();
-        loginFieldLink.click();
+        loginFormButton.click();
     }
 
 
-    public void clickLoginBtn() {
-        loginBtn.click();
+    public void submitLoginForm() {
+        loginFormSubmitButton.click();
     }
 
     public boolean loginWindowLinkExists() {
-        return !driver.findElements(By.xpath("//span[contains(text(), 'Войти')]")).isEmpty();
+        return driver.findElements(By.xpath("//span[contains(text(), 'Войти')]")).isEmpty();
     }
 
     public void waitAfterSubmit() {
-        new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOf(avatar));
+        new WebDriverWait(driver, Duration.ofSeconds(3)).until(ExpectedConditions.visibilityOf(avatar));
+
+
     }
-
-
 }
