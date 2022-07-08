@@ -1,6 +1,7 @@
 package org.Lesson14;
 
 
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,8 +24,10 @@ public class LoginPage {
 
     }
 
+
     @FindBy(xpath = "//span[contains(text(), 'Войти')]")
     private WebElement loginWindowLink;
+
     @FindBy(xpath = "//button//span[contains(text(), 'Войти')]")
     private WebElement loginButtonLink;
     @FindBy(xpath = "//button[contains(@data-gtm, \"Login — Mail — Click\")]")
@@ -60,7 +63,7 @@ public class LoginPage {
     }
 
     public boolean loginWindowLinkExists() {
-        return driver.findElements(By.xpath("//span[contains(text(), 'Войти')]")).isEmpty();
+        return !driver.findElements(By.xpath("//span[contains(text(), 'Войти')]")).isEmpty();
     }
 
     public void waitAfterSubmit() {

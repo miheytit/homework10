@@ -1,20 +1,25 @@
 package org.Lesson14;
 
 
+import io.qameta.allure.Step;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
+@Data
+@AllArgsConstructor
 
 public class LoginTest {
     public static LoginPage loginPage;
     public static WebDriver driver;
 
+    @Step("Запуск браузера")
     @BeforeAll
     public static void setup() {
         System.setProperty("webdriver.chrome.driver", ConfProperties.getProperty("chromedriver"));
@@ -24,6 +29,7 @@ public class LoginTest {
         driver.manage().window().maximize();
     }
 
+    @Step("Авторизация")
     @Test
     public void LoginCheckTest() {
         loginPage.openLoginWindow();
@@ -37,12 +43,6 @@ public class LoginTest {
 
     @AfterAll
     public static void tearDown() {
-//        LogEntries browserLogs = driver.manage().logs().get(LogType.BROWSER);
-//        List<LogEntry> allLogRows = browserLogs.getAll();
-//        if (allLogRows.size() > 0)
-//        {
-//
-//        }
         driver.quit();
     }
 }
