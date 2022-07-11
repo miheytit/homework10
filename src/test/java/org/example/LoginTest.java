@@ -1,6 +1,7 @@
 package org.example;
 
 import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Step;
 import lombok.AllArgsConstructor;
@@ -18,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 @AllArgsConstructor
 @DisplayName("Тестирование класса LoginTest")
 @Feature("LoginPage Test")
+@Epic("Login Tests Epic")
 public class LoginTest {
     public static LoginPage loginPage;
     public static WebDriver driver;

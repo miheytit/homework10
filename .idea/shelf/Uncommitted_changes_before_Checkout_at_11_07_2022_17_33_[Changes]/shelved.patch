@@ -1,0 +1,558 @@
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<project xmlns=\"http://maven.apache.org/POM/4.0.0\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n  xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\r\n  <modelVersion>4.0.0</modelVersion>\r\n\r\n  <groupId>org.example</groupId>\r\n  <artifactId>hwquick</artifactId>\r\n  <version>1.0-SNAPSHOT</version>\r\n\r\n\r\n  <name>hwquick</name>\r\n  <!-- FIXME change it to the project's website -->\r\n  <url>http://www.example.com</url>\r\n\r\n  <properties>\r\n    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>\r\n    <maven.compiler.source>1.7</maven.compiler.source>\r\n    <maven.compiler.target>1.7</maven.compiler.target>\r\n  </properties>\r\n\r\n  <dependencies>\r\n    <dependency>\r\n      <groupId>junit</groupId>\r\n      <artifactId>junit</artifactId>\r\n      <version>4.11</version>\r\n      <scope>test</scope>\r\n    </dependency>\r\n  </dependencies>\r\n\r\n  <build>\r\n    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->\r\n      <plugins>\r\n        <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->\r\n        <plugin>\r\n          <artifactId>maven-clean-plugin</artifactId>\r\n          <version>3.1.0</version>\r\n        </plugin>\r\n        <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->\r\n        <plugin>\r\n          <artifactId>maven-resources-plugin</artifactId>\r\n          <version>3.0.2</version>\r\n        </plugin>\r\n        <plugin>\r\n          <artifactId>maven-compiler-plugin</artifactId>\r\n          <version>3.8.0</version>\r\n        </plugin>\r\n        <plugin>\r\n          <artifactId>maven-surefire-plugin</artifactId>\r\n          <version>2.22.1</version>\r\n        </plugin>\r\n        <plugin>\r\n          <artifactId>maven-jar-plugin</artifactId>\r\n          <version>3.0.2</version>\r\n        </plugin>\r\n        <plugin>\r\n          <artifactId>maven-install-plugin</artifactId>\r\n          <version>2.5.2</version>\r\n        </plugin>\r\n        <plugin>\r\n          <artifactId>maven-deploy-plugin</artifactId>\r\n          <version>2.8.2</version>\r\n        </plugin>\r\n        <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->\r\n        <plugin>\r\n          <artifactId>maven-site-plugin</artifactId>\r\n          <version>3.7.1</version>\r\n        </plugin>\r\n        <plugin>\r\n          <artifactId>maven-project-info-reports-plugin</artifactId>\r\n          <version>3.0.0</version>\r\n        </plugin>\r\n      </plugins>\r\n    </pluginManagement>\r\n  </build>\r\n</project>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pom.xml b/pom.xml
+--- a/pom.xml	(revision 56d7dac5518671e094dac6044fea5bea54a3cc4c)
++++ b/pom.xml	(date 1657537944358)
+@@ -14,63 +14,128 @@
+   <url>http://www.example.com</url>
+ 
+   <properties>
+-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+-    <maven.compiler.source>1.7</maven.compiler.source>
+-    <maven.compiler.target>1.7</maven.compiler.target>
++    <java.version>11</java.version>
++    <selenium.version>4.0.0-beta-3</selenium.version>
++    <junit.jupiter.version>5.8.0-M1</junit.jupiter.version>
++    <junit.platform.version>1.8.0-M1</junit.platform.version>
++    <allure-maven.version>2.10.0</allure-maven.version>
++    <allure-junit5.version>2.14.0</allure-junit5.version>
++    <maven-surefire-plugin.version>3.0.0-M3</maven-surefire-plugin.version>
++    <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
++    <aspectj.version>1.9.6</aspectj.version>
++    <junit-platform-surefire-provider.version>1.3.1</junit-platform-surefire-provider.version>
+   </properties>
+ 
+   <dependencies>
++    <!--Selenium Dependency-->
++    <dependency>
++      <groupId>org.seleniumhq.selenium</groupId>
++      <artifactId>selenium-java</artifactId>
++      <version>${selenium.version}</version>
++    </dependency>
++    <!--JUNIT 5 Dependencies-->
++    <dependency>
++      <groupId>org.junit.jupiter</groupId>
++      <artifactId>junit-jupiter-api</artifactId>
++      <version>${junit.jupiter.version}</version>
++    </dependency>
++    <dependency>
++      <groupId>org.junit.jupiter</groupId>
++      <artifactId>junit-jupiter-engine</artifactId>
++      <version>${junit.jupiter.version}</version>
++    </dependency>
+     <dependency>
+-      <groupId>junit</groupId>
+-      <artifactId>junit</artifactId>
+-      <version>4.11</version>
++      <groupId>org.junit.platform</groupId>
++      <artifactId>junit-platform-engine</artifactId>
++      <version>${junit.platform.version}</version>
++    </dependency>
++    <dependency>
++      <groupId>org.junit.platform</groupId>
++      <artifactId>junit-platform-launcher</artifactId>
++      <version>${junit.platform.version}</version>
++    </dependency>
++    <dependency>
++      <groupId>org.junit.platform</groupId>
++      <artifactId>junit-platform-runner</artifactId>
++      <version>${junit.platform.version}</version>
++    </dependency>
++    <!--Allure Reporting Dependencies-->
++    <dependency>
++      <groupId>io.qameta.allure</groupId>
++      <artifactId>allure-junit5</artifactId>
++      <version>${allure-junit5.version}</version>
++    </dependency>
++    <dependency>
++      <groupId>org.projectlombok</groupId>
++      <artifactId>lombok</artifactId>
++      <version>RELEASE</version>
+       <scope>test</scope>
+     </dependency>
+   </dependencies>
+ 
+   <build>
+-    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+-      <plugins>
+-        <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
+-        <plugin>
+-          <artifactId>maven-clean-plugin</artifactId>
+-          <version>3.1.0</version>
+-        </plugin>
+-        <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
+-        <plugin>
+-          <artifactId>maven-resources-plugin</artifactId>
+-          <version>3.0.2</version>
+-        </plugin>
+-        <plugin>
+-          <artifactId>maven-compiler-plugin</artifactId>
+-          <version>3.8.0</version>
+-        </plugin>
+-        <plugin>
+-          <artifactId>maven-surefire-plugin</artifactId>
+-          <version>2.22.1</version>
+-        </plugin>
+-        <plugin>
+-          <artifactId>maven-jar-plugin</artifactId>
+-          <version>3.0.2</version>
+-        </plugin>
+-        <plugin>
+-          <artifactId>maven-install-plugin</artifactId>
+-          <version>2.5.2</version>
+-        </plugin>
+-        <plugin>
+-          <artifactId>maven-deploy-plugin</artifactId>
+-          <version>2.8.2</version>
+-        </plugin>
+-        <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
+-        <plugin>
+-          <artifactId>maven-site-plugin</artifactId>
+-          <version>3.7.1</version>
+-        </plugin>
+-        <plugin>
+-          <artifactId>maven-project-info-reports-plugin</artifactId>
+-          <version>3.0.0</version>
+-        </plugin>
+-      </plugins>
+-    </pluginManagement>
++    <plugins>
++      <plugin>
++        <groupId>org.apache.maven.plugins</groupId>
++        <artifactId>maven-surefire-plugin</artifactId>
++        <version>${maven-surefire-plugin.version}</version>
++        <configuration>
++          <properties>
++            <property>
++              <name>listener</name>
++              <value>io.qameta.allure.junit5.AllureJunit5</value>
++            </property>
++          </properties>
++          <includes>
++            <include>**/tests/**.java</include>
++          </includes>
++          <argLine>
++            -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
++          </argLine>
++          <systemProperties>
++            <property>
++              <name>allure.results.directory</name>
++              <value>${project.basedir}/allure-results</value>
++            </property>
++            <property>
++              <name>junit.jupiter.extensions.autodetection.enabled</name>
++              <value>true</value>
++            </property>
++          </systemProperties>
++          <reportFormat>plain</reportFormat>
++        </configuration>
++        <dependencies>
++          <dependency>
++            <groupId>org.aspectj</groupId>
++            <artifactId>aspectjweaver</artifactId>
++            <version>${aspectj.version}</version>
++          </dependency>
++          <dependency>
++            <groupId>org.junit.jupiter</groupId>
++            <artifactId>junit-jupiter-api</artifactId>
++            <version>${junit.jupiter.version}</version>
++          </dependency>
++          <dependency>
++            <groupId>org.junit.jupiter</groupId>
++            <artifactId>junit-jupiter-engine</artifactId>
++            <version>${junit.jupiter.version}</version>
++          </dependency>
++        </dependencies>
++      </plugin>
++      <plugin>
++        <groupId>io.qameta.allure</groupId>
++        <artifactId>allure-maven</artifactId>
++        <version>${allure-maven.version}</version>
++      </plugin>
++      <plugin>
++        <groupId>org.apache.maven.plugins</groupId>
++        <artifactId>maven-compiler-plugin</artifactId>
++        <version>${maven-compiler-plugin.version}</version>
++        <configuration>
++          <source>${java.version}</source>
++          <target>${java.version}</target>
++        </configuration>
++      </plugin>
++    </plugins>
+   </build>
+ </project>
+Index: src/test/java/org/example/AppTest.java
+===================================================================
+diff --git a/src/test/java/org/example/AppTest.java b/src/test/java/org/example/AppTest.java
+deleted file mode 100644
+--- a/src/test/java/org/example/AppTest.java	(revision 56d7dac5518671e094dac6044fea5bea54a3cc4c)
++++ /dev/null	(revision 56d7dac5518671e094dac6044fea5bea54a3cc4c)
+@@ -1,20 +0,0 @@
+-package org.example;
+-
+-import static org.junit.Assert.assertTrue;
+-
+-import org.junit.Test;
+-
+-/**
+- * Unit test for simple App.
+- */
+-public class AppTest 
+-{
+-    /**
+-     * Rigorous Test :-)
+-     */
+-    @Test
+-    public void shouldAnswerWithTrue()
+-    {
+-        assertTrue( true );
+-    }
+-}
+Index: src/main/java/org/example/App.java
+===================================================================
+diff --git a/src/main/java/org/example/App.java b/src/main/java/org/example/App.java
+deleted file mode 100644
+--- a/src/main/java/org/example/App.java	(revision 56d7dac5518671e094dac6044fea5bea54a3cc4c)
++++ /dev/null	(revision 56d7dac5518671e094dac6044fea5bea54a3cc4c)
+@@ -1,13 +0,0 @@
+-package org.example;
+-
+-/**
+- * Hello world!
+- *
+- */
+-public class App 
+-{
+-    public static void main( String[] args )
+-    {
+-        System.out.println( "Hello World!" );
+-    }
+-}
+Index: src/test/java/resources/conf.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/src/test/java/resources/conf.properties b/src/test/java/resources/conf.properties
+new file mode 100644
+--- /dev/null	(date 1657475159882)
++++ b/src/test/java/resources/conf.properties	(date 1657475159882)
+@@ -0,0 +1,4 @@
++chromedriver = src/test/java/resources/chromedriver.exe
++loginpage = https://vc.ru
++login = miheytit@gmail.com
++password = pravdadom66
+\ No newline at end of file
+Index: src/test/java/org/example/LoginTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/org/example/LoginTest.java b/src/test/java/org/example/LoginTest.java
+new file mode 100644
+--- /dev/null	(date 1657549191798)
++++ b/src/test/java/org/example/LoginTest.java	(date 1657549191798)
+@@ -0,0 +1,54 @@
++package org.example;
++
++import io.qameta.allure.Description;
++import io.qameta.allure.Feature;
++import io.qameta.allure.Step;
++import lombok.AllArgsConstructor;
++import lombok.Data;
++import org.junit.jupiter.api.AfterAll;
++import org.junit.jupiter.api.BeforeAll;
++import org.junit.jupiter.api.DisplayName;
++import org.junit.jupiter.api.Test;
++import org.openqa.selenium.WebDriver;
++import org.openqa.selenium.chrome.ChromeDriver;
++
++import static org.junit.jupiter.api.Assertions.assertFalse;
++
++@Data
++@AllArgsConstructor
++@DisplayName("Тестирование класса LoginTest")
++@Feature("LoginPage Test")
++public class LoginTest {
++    public static LoginPage loginPage;
++    public static WebDriver driver;
++
++
++    @BeforeAll
++    @Description
++    @Step("Запуск браузера")
++    public static void setup() {
++        System.setProperty("webdriver.chrome.driver", ConfProperties.getProperty("chromedriver"));
++        driver = new ChromeDriver();
++        driver.get(ConfProperties.getProperty("loginpage"));
++        loginPage = new LoginPage(driver);
++        driver.manage().window().maximize();
++    }
++
++    @Test
++    @Step("Авторизация")
++    @Description
++    public void LoginCheckTest() {
++        loginPage.openLoginWindow();
++        loginPage.inputLogin(ConfProperties.getProperty("login"));
++        loginPage.inputPasswd(ConfProperties.getProperty("password"));
++        loginPage.submitLoginForm();
++        loginPage.waitAfterSubmit();
++        assertFalse(loginPage.loginWindowLinkExists(), "logged in successfully");
++    }
++
++
++    @AfterAll
++    public static void tearDown() {
++        driver.quit();
++    }
++}
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_1_8\" default=\"true\" project-jdk-name=\"1.8\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 56d7dac5518671e094dac6044fea5bea54a3cc4c)
++++ b/.idea/misc.xml	(date 1657516611985)
+@@ -8,7 +8,7 @@
+       </list>
+     </option>
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_18" default="true" project-jdk-name="18" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/main/java/org/example/LoginPage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/LoginPage.java b/src/main/java/org/example/LoginPage.java
+new file mode 100644
+--- /dev/null	(date 1657516329882)
++++ b/src/main/java/org/example/LoginPage.java	(date 1657516329882)
+@@ -0,0 +1,70 @@
++package org.example;
++
++import org.openqa.selenium.By;
++import org.openqa.selenium.WebDriver;
++import org.openqa.selenium.WebElement;
++import org.openqa.selenium.support.FindBy;
++import org.openqa.selenium.support.PageFactory;
++import org.openqa.selenium.support.ui.ExpectedConditions;
++import org.openqa.selenium.support.ui.WebDriverWait;
++
++import java.time.Duration;
++
++public class LoginPage {
++    public WebDriver driver;
++
++
++    public LoginPage(WebDriver driver) {
++        PageFactory.initElements(driver, this);
++        this.driver = driver;
++
++    }
++
++
++    @FindBy(xpath = "//span[contains(text(), 'Войти')]")
++    private WebElement loginWindowLink;
++
++    @FindBy(xpath = "//button//span[contains(text(), 'Войти')]")
++    private WebElement loginButtonLink;
++    @FindBy(xpath = "//button[contains(@data-gtm, \"Login — Mail — Click\")]")
++    private WebElement loginFormButton;
++    @FindBy(xpath = "//*[contains(@name, 'login')]")
++    private WebElement loginField;
++
++    @FindBy(xpath = "//*[contains(@name, 'password')]")
++    private WebElement passwdField;
++
++    @FindBy(xpath = "//button[contains(@data-gtm, \"Login Mail — Login — Click\")]")
++    private WebElement loginFormSubmitButton;
++    @FindBy(xpath = "//a[contains(@class, \"navigation-user-profile__avatar\")]")
++    private WebElement avatar;
++
++    public void inputLogin(String login) {
++        loginField.sendKeys(login);
++    }
++
++    public void inputPasswd(String passwd) {
++        passwdField.sendKeys(passwd);
++    }
++
++    public void openLoginWindow() {
++        loginWindowLink.click();
++        loginButtonLink.click();
++        loginFormButton.click();
++    }
++
++
++    public void submitLoginForm() {
++        loginFormSubmitButton.click();
++    }
++
++    public boolean loginWindowLinkExists() {
++        return !driver.findElements(By.xpath("//span[contains(text(), 'Войти')]")).isEmpty();
++    }
++
++    public void waitAfterSubmit() {
++        new WebDriverWait(driver, Duration.ofSeconds(3)).until(ExpectedConditions.visibilityOf(avatar));
++
++
++    }
++}
+Index: src/main/java/org/example/ConfProperties.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/ConfProperties.java b/src/main/java/org/example/ConfProperties.java
+new file mode 100644
+--- /dev/null	(date 1657516329893)
++++ b/src/main/java/org/example/ConfProperties.java	(date 1657516329893)
+@@ -0,0 +1,31 @@
++package org.example;
++
++import java.io.FileInputStream;
++import java.io.IOException;
++import java.util.Properties;
++
++public class ConfProperties {
++    protected static FileInputStream fileInputStream;
++    protected static Properties PROPERTIES;
++
++    static {
++        try {
++            fileInputStream = new FileInputStream("src/test/java/resources/conf.properties");
++            PROPERTIES = new Properties();
++            PROPERTIES.load(fileInputStream);
++        } catch (IOException e) {
++            e.printStackTrace();
++        } finally {
++            if (fileInputStream != null)
++                try {
++                    fileInputStream.close();
++                } catch (IOException e) {
++                    e.printStackTrace();
++                }
++        }
++    }
++
++    public static String getProperty(String key) {
++        return PROPERTIES.getProperty(key);
++    }
++}
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"8fe1a249-144f-484b-954b-6dd2c3b5d04a\" name=\"Changes\" comment=\"hw\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2BCOfmNDkErc4xcasXC6hOgKw5g\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"ASKED_ADD_EXTERNAL_FILES\": \"true\",\r\n    \"ASKED_SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"8fe1a249-144f-484b-954b-6dd2c3b5d04a\" name=\"Changes\" comment=\"\" />\r\n      <created>1656406708325</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1656406708325</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"hw\">\r\n      <created>1656406845813</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1656406845813</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"hw\">\r\n      <created>1656406896124</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1656406896124</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"hw\">\r\n      <created>1656407038187</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1656407038187</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"4\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"hw\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"hw\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 56d7dac5518671e094dac6044fea5bea54a3cc4c)
++++ b/.idea/workspace.xml	(date 1657549211021)
+@@ -5,7 +5,16 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="8fe1a249-144f-484b-954b-6dd2c3b5d04a" name="Changes" comment="hw">
++      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/ConfProperties.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/LoginPage.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/test/java/org/example/LoginTest.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/test/java/resources/chromedriver.exe" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/test/java/resources/conf.properties" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/AppTest.java" beforeDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -24,14 +33,67 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "ASKED_ADD_EXTERNAL_FILES": "true",
+-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true"
+-  }
+-}]]></component>
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
++    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;last_opened_file_path&quot;: &quot;C:/Users/Титовы/IdeaProjects/src/homework10/target&quot;,
++    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
++    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
++    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
++  }
++}</component>
++  <component name="RecentsManager">
++    <key name="CopyFile.RECENT_KEYS">
++      <recent name="C:\Users\Титовы\IdeaProjects\src\homework10\target" />
++      <recent name="C:\Users\Титовы\IdeaProjects\src\homework10\src\test\java" />
++      <recent name="C:\Users\Титовы\IdeaProjects\src\homework10\src\main\java\org\example" />
++    </key>
++    <key name="CopyClassDialog.RECENTS_KEY">
++      <recent name="org.example" />
++    </key>
++  </component>
++  <component name="RunManager" selected="JUnit.LoginTest.LoginCheckTest">
++    <configuration name="LoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++      <module name="hwquick" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="org.example.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <option name="PACKAGE_NAME" value="org.example" />
++      <option name="MAIN_CLASS_NAME" value="org.example.LoginTest" />
++      <option name="TEST_OBJECT" value="class" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <configuration name="LoginTest.LoginCheckTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
++      <module name="hwquick" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="org.example.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <option name="PACKAGE_NAME" value="org.example" />
++      <option name="MAIN_CLASS_NAME" value="org.example.LoginTest" />
++      <option name="METHOD_NAME" value="LoginCheckTest" />
++      <option name="TEST_OBJECT" value="method" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <recent_temporary>
++      <list>
++        <item itemvalue="JUnit.LoginTest.LoginCheckTest" />
++        <item itemvalue="JUnit.LoginTest" />
++      </list>
++    </recent_temporary>
++  </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
